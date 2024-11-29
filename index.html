@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Operations</title>
+  <style>
+    body {
+      font-family:'Times New Roman', Times, serif;
+      margin: 20px;
+      padding: 20px;
+      background-color: #a98e8e;
+      text-align: center;
+    }
+    input {
+      width: 25%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 15px;
+      border: 1px solid;
+      border-radius: 5px;
+    }
+    button {
+      background-color: black;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-size: 15px;
+    }
+    .result {
+      margin: 10px auto;
+      padding: 10px;
+      background-color: white;
+      width: 30%;
+      font-size: 16px;
+      border: 1px solid;
+      border-radius: 5px;
+    }
+
+  </style>
+</head>
+
+<body>
+  
+  <h2>Math Operations</h2>
+  <div>
+    <label for="num1">Enter the first number: </label>
+    <input type="text" id="num1">
+  </div>
+  <div>
+    <label for="num2">Enter the second number: </label>
+    <input type="text" id="num2">
+  </div>
+  <button onclick="Calculate()">Calculate</button>
+  <div class="result" id="results"></div>
+
+<script>
+  function Calculate() {
+    const num1 = document.getElementById('num1').value.trim();
+    const num2 = document.getElementById('num2').value.trim();
+
+    const results = document.getElementById('results');
+    results.innerHTML = '';
+
+    if (isNaN(num1) || isNaN(num2) || num1 === '' || num2 === '') {
+      alert("Please enter valid numbers.");
+      return;
+    }
+
+    const number1 = parseFloat(num1);
+    const number2 = parseFloat(num2);
+
+    const addition = number1 + number2;
+    const subtraction = number1 - number2;
+    const multiplication = number1 * number2;
+    const division = number1 / number2;
+
+    results.innerHTML = `
+      <p><b>Addition:</b> ${addition}</p>
+      <p><b>Subtraction:</b> ${subtraction}</p>
+      <p><b>Multiplication:</b> ${multiplication}</p>
+      <p><b>Division:</b> ${division}</p>`;
+
+  }
+</script>
+
+</body>
+</html>
